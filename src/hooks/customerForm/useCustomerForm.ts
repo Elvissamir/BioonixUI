@@ -1,19 +1,24 @@
-import { ChangeEvent } from "react"
+import { ChangeEvent, useState } from "react"
 import { CustomerData, CustomerResource } from "../../core/customer/customer.interfaces"
 import customerEndpoints from "../../core/customer/endpoints"
 import HttpService from "../../services/http/HttpService"
 import useLoadingData from "../useLoadingData"
 import useCustomerFormData from "./useCustomerFormData"
 import { StatusCodes } from 'http-status-codes'
+import customerValidator, { FieldError } from "../../core/customer/customerValidator"
 
 interface CustomerPostResponse {
     data: CustomerResource
     status: StatusCodes
 }
 
+type State = 'loading' | 'success' | 'failed' | null
+
 const useCustomerForm = () => {
     const { customerData, setCustomerData } = useCustomerFormData()
     const { loading, startLoading, finishLoading } = useLoadingData()
+    const [ state, setState ] = useState<State>(null)
+    const [ errors, setErrors ] = useState<FieldError | null>(null)
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         let ncustomerData: CustomerData = {...customerData}
@@ -33,18 +38,32 @@ const useCustomerForm = () => {
         if (e.target.id === 'company')
             ncustomerData.company = e.target.value
         
+        const { error } = customerValidator(ncustomerData)
+       
+        if (!error)
+            setErrors(null)
+        if (error)
+            setErrors(error)
+
+        setState(null)
         setCustomerData(ncustomerData)
     }
 
     const handleSendData = async () => {
-        startLoading()
+        const { error } = customerValidator(customerData)
+        if (error) return setErrors(error)
 
+        setState('loading')
+        startLoading()
         const response: CustomerPostResponse = await HttpService.post({
             url: customerEndpoints.post,
             data: customerData
         })
 
-        console.log('response', response)
+        if (response.status === StatusCodes.OK)
+            setState('success')
+        else 
+            setState('failed')
         finishLoading()
     }
 
@@ -52,7 +71,9 @@ const useCustomerForm = () => {
         customerData,
         handleInputChange,
         handleSendData,
-        loading
+        loading,
+        state,
+        errors
     }
 }
 

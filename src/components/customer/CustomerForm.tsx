@@ -5,8 +5,10 @@ import FormField from "../FormField"
 const CustomerForm = () => {
     const { 
         customerData,
+        state,
         handleInputChange,
-        handleSendData } = useCustomerForm()
+        handleSendData, 
+        errors } = useCustomerForm()
 
     return (
         <div className="customer-form-container">
@@ -20,7 +22,7 @@ const CustomerForm = () => {
                     type='text'
                     showLabel={true}
                     disabled={false}
-                    hasError={false}
+                    error={errors}
                     onChange={handleInputChange} />
                 <FormField
                     field="last_name"
@@ -30,7 +32,7 @@ const CustomerForm = () => {
                     type='text'
                     showLabel={true}
                     disabled={false}
-                    hasError={false}
+                    error={errors}
                     onChange={handleInputChange} />
                 <FormField
                     field="age"
@@ -40,7 +42,7 @@ const CustomerForm = () => {
                     type='number'
                     showLabel={true}
                     disabled={false}
-                    hasError={false}
+                    error={errors}
                     onChange={handleInputChange} />
                 <FormField
                     field="email"
@@ -50,7 +52,7 @@ const CustomerForm = () => {
                     type='text'
                     showLabel={true}
                     disabled={false}
-                    hasError={false}
+                    error={errors}
                     onChange={handleInputChange} />
                 <FormField
                     field="company"
@@ -60,12 +62,17 @@ const CustomerForm = () => {
                     type='text'
                     showLabel={true}
                     disabled={false}
-                    hasError={false}
+                    error={errors}
                     onChange={handleInputChange} />
-                <ActionBtn 
-                    text="Crear Cliente"
-                    containerCss="customer-form-btn" 
-                    action={handleSendData}/>
+                
+                <div className="form-bottom">
+                    { state === 'success' && <p className="form-state-success">Cliente fue guardado</p> }
+                    { state === 'failed' && <p className="form-state-error">Ha ocurrido un error</p> }
+                    <ActionBtn 
+                        text="Crear Cliente"
+                        containerCss="customer-form-btn" 
+                        action={handleSendData}/>
+                </div>
             </form>
         </div>
     )

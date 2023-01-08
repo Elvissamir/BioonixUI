@@ -12,18 +12,29 @@ export interface ValidationResult {
 
 const customerSchema = Joi.object({
     first_name: Joi
+        .string()
+        .min(2)
         .required()
         .label('first_name'),
     last_name: Joi
+        .string()
+        .min(2)
         .required()
         .label('last_name'),
     email: Joi
+        .string()
+        .email({ tlds: { allow: false } })
         .required()
-        .label('first_name'),
+        .label('email'),
     age: Joi
+        .number()
+        .min(18)
+        .max(100)
         .required()
-        .label('first_name'),
+        .label('age'),
     company: Joi 
+        .string()
+        .min(2)
         .required()
         .label('company'),
 })
@@ -31,10 +42,12 @@ const customerSchema = Joi.object({
 const customerValidator = (data: any): ValidationResult => {
     const result = customerSchema.validate(data, { abortEarly: true })
 
+    console.log(result)
+
     if (result.error) {
         return { 
             error: { 
-                field: result.error.details[0].message,
+                field: result.error.details[0].path[0] as string,
                 message: result.error.message
             },
             data

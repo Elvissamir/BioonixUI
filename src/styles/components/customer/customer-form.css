@@ -6,7 +6,6 @@
     box-shadow: 0 0 5px black;
     padding: 30px 35px 40px 35px;
     margin: auto;
-    max-width: 350px;
     width: 100%;
 }
 
@@ -18,12 +17,54 @@
     margin-top: 25px;
 }
 
+.form-bottom {
+    margin-top: 30px;
+}
+
+.form-state-success {
+    display: flex;
+    justify-content: center;
+    color: var(--color-a);
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.form-state-error {
+    display: flex;
+    justify-content: center;
+    color: red;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
 .customer-form-btn {
     display: flex;
-    margin-top: 30px;
     width: 100%;
 }
 
 .customer-form-container:hover {
     box-shadow: 0 0 15px var(--color-a);
+}
+
+.input-with-error {
+    border: 2px red solid;
+    box-shadow: 0 0 2px red;
+}
+
+.field-error {
+    color: red;
+}
+
+@media (min-width: 640px) {
+    .customer-form-container {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 0 5px black;
+        padding: 30px 35px 40px 35px;
+        margin: auto;
+        max-width: 350px;
+        width: 100%;
+    }
 }
