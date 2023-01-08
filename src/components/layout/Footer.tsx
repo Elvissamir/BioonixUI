@@ -2,7 +2,10 @@ const Footer = () => {
     return (
         <div className="footer-container">
             <footer className="footer container-x">
-                <div className="footer-logo">Bioonix (Prueba Desarrollador)</div>
+                <div className="footer-logo">
+                    <p>Bioonix</p>
+                    <p className="text-sm">(Prueba Desarrollador)</p>
+                </div>
                 <div className="footer-details">
                     <div className="designed-text">
                         <p className="text-sm">Desarrollado</p>

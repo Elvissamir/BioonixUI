@@ -1,12 +1,15 @@
+import { Link } from 'react-router-dom'
+import routes from '../../core/routes'
+
 const Header = () => {
     return (
-        <div className="navbar-container">
-            <nav className="navbar x-container">
-                <div className="left">
-                    <p className="bioonix-logo">Bioonix</p>
+        <div className="header-container">
+            <nav className="header container-x">
+                <div className="header-left">
+                    <p className="header-logo">Bioonix</p>
                 </div>
-                <div className="right">
-
+                <div className="header-right">
+                    <Link className='header-link' to={routes.home}>Formulario</Link>
                 </div>
             </nav>
         </div>

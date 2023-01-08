@@ -14,9 +14,13 @@
 }
 
 .footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     font-size: 18px;
     font-weight: bolder;
-    color: white;
+    color: var(--text-color);
 }
 
 .footer-details {
@@ -24,13 +28,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: var(--text-color);
     margin-top: 20px;
 }
 
 .footer-bottom {
     display: flex;
     justify-content: center;
-    color: white;
+    color: var(--text-color);
     margin-top: 35px;
 }

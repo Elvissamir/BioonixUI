@@ -1,0 +1,27 @@
+.header-container {
+    display: flex;
+    background-color: var(--color-a);
+    padding: 5px 0;
+    height: 62px;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.header-left {
+    color: var(--text-color);
+    font-size: 22px;
+    font-weight: bolder;
+}
+
+.header-right {
+    margin-left: auto
+}
+
+.header-link {
+    color: var(--color-b);
+    font-size: 16px;
+}
