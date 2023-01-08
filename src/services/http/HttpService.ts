@@ -28,7 +28,9 @@ class HttpServiceHandler implements HttpServiceI {
 
     async get(url: string ) {
         try {
-            return await axios.get(url)
+            const response = await axios.get(url)
+
+            return response.data
         }
         catch (ex) {
             return this.getFailedReqData(ex)
@@ -37,7 +39,9 @@ class HttpServiceHandler implements HttpServiceI {
 
     async post({ url, data }: PostReqData) {
         try {
-            return await axios.post(url, data)
+            const response = await axios.post(url, data)
+
+            return response.data
         }
         catch (ex) {
             this.getFailedReqData(ex)

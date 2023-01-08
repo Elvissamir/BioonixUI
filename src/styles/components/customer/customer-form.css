@@ -5,6 +5,7 @@
     border-radius: 20px;
     box-shadow: 0 0 5px black;
     padding: 30px 35px 40px 35px;
+    margin: auto;
     max-width: 350px;
     width: 100%;
 }

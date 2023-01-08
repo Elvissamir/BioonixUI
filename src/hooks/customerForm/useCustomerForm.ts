@@ -1,9 +1,19 @@
 import { ChangeEvent } from "react"
-import { CustomerData } from "../../core/customer/customer.interfaces"
+import { CustomerData, CustomerResource } from "../../core/customer/customer.interfaces"
+import customerEndpoints from "../../core/customer/endpoints"
+import HttpService from "../../services/http/HttpService"
+import useLoadingData from "../useLoadingData"
 import useCustomerFormData from "./useCustomerFormData"
+import { StatusCodes } from 'http-status-codes'
+
+interface CustomerPostResponse {
+    data: CustomerResource
+    status: StatusCodes
+}
 
 const useCustomerForm = () => {
     const { customerData, setCustomerData } = useCustomerFormData()
+    const { loading, startLoading, finishLoading } = useLoadingData()
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         let ncustomerData: CustomerData = {...customerData}
@@ -27,13 +37,22 @@ const useCustomerForm = () => {
     }
 
     const handleSendData = async () => {
-        console.log('send data')
+        startLoading()
+
+        const response: CustomerPostResponse = await HttpService.post({
+            url: customerEndpoints.post,
+            data: customerData
+        })
+
+        console.log('response', response)
+        finishLoading()
     }
 
     return {
         customerData,
         handleInputChange,
-        handleSendData
+        handleSendData,
+        loading
     }
 }
 
