@@ -6,6 +6,7 @@ const PagesRouter = () => {
     return (
         <Routes>
             <Route path={routes.home} element={<HomePage />}></Route>
+            <Route path='*' element={<NotFoundPage />} />
         </Routes>
     )
 }
