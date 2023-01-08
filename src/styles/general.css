@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-x {
+    margin: 0 auto;
+    width: 95%;
+}
+
+.text-sm {
+    font-size: 18px;
+}
+
+.text-xs {
+    font-size: 14px;
+}

@@ -1,4 +1,3 @@
-import './App.css';
 import Layout from './components/layout/Layout';
 import PagesRouter from './components/pages/PagesRouter';
 

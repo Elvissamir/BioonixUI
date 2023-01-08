@@ -1,0 +1,11 @@
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.layout-blocks {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
