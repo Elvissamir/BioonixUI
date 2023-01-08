@@ -1,0 +1,28 @@
+.customer-form-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 5px black;
+    padding: 30px 35px 40px 35px;
+    max-width: 350px;
+    width: 100%;
+}
+
+.form-title {
+    color: var(--color-a);
+}
+
+.customer-form {
+    margin-top: 25px;
+}
+
+.customer-form-btn {
+    display: flex;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.customer-form-container:hover {
+    box-shadow: 0 0 15px var(--color-a);
+}

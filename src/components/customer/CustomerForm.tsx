@@ -9,9 +9,9 @@ const CustomerForm = () => {
         handleSendData } = useCustomerForm()
 
     return (
-        <div className="customer-form">
-            <h1>Formulario Cliente</h1>
-            <form className="form">
+        <div className="customer-form-container">
+            <h1 className="form-title">Formulario Cliente</h1>
+            <form className="customer-form">
                 <FormField
                     field="first_name"
                     label="Nombre"
