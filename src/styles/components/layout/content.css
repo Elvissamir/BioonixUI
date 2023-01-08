@@ -1,5 +1,6 @@
 .content-container {
+    background-color: lightgray;
+    min-height: 60vh;
     padding-top: 40px;
     padding-bottom: 50px;
-    background-color: lightgray;
 }
