@@ -5,12 +5,17 @@ const useCustomerForm = () => {
     const { customerData, setCustomerData } = useCustomerFormData()
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        console.log('Changing input')
+        console.log('Changing input', e.target.id)
+    }
+
+    const handleSendData = () => {
+        console.log('send data')
     }
 
     return {
         customerData,
-        handleInputChange
+        handleInputChange,
+        handleSendData
     }
 }
 

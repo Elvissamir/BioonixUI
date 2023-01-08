@@ -1,10 +1,12 @@
 import useCustomerForm from "../../hooks/customerForm/useCustomerForm"
+import ActionBtn from "../ActionBtn"
 import FormField from "../FormField"
 
 const CustomerForm = () => {
     const { 
         customerData,
-        handleInputChange } = useCustomerForm()
+        handleInputChange,
+        handleSendData } = useCustomerForm()
 
     return (
         <div className="customer-form">
@@ -60,6 +62,10 @@ const CustomerForm = () => {
                     disabled={false}
                     hasError={false}
                     onChange={handleInputChange} />
+                <ActionBtn 
+                    text="Crear Cliente"
+                    containerCss="customer-form-btn" 
+                    action={handleSendData}/>
             </form>
         </div>
     )

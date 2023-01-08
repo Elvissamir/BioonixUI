@@ -1,0 +1,22 @@
+.action-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-b);
+    color: var(--color-a);
+    font-weight: bolder;
+    cursor: pointer;
+    border: 2px var(--color-b) solid;
+    border-radius: 15px;
+    box-shadow: 0 0 5px black;
+    font-size: 16px;
+    padding: 10px;
+    height: 50px;
+    width: 100%;
+}
+
+.action-btn:hover {
+    background-color: var(--color-a);
+    border: 2px var(--color-a) solid;
+    color: var(--color-b);
+}

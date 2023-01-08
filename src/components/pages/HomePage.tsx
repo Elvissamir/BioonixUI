@@ -1,7 +1,9 @@
+import CustomerForm from "../customer/CustomerForm"
+
 const HomePage = () => {
     return (
         <div className="page-content">
-            <p>Home Page</p>
+            <CustomerForm />
         </div>
     )
 }
